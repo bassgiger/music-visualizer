@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && echo \"git pull beim Start:\" && GIT_TERMINAL_PROMPT=0 git pull --ff-only 2>&1 | tail -5",
+            "timeout": 30,
+            "statusMessage": "Hole neuesten Stand von GitHub…"
+          }
+        ]
+      }
+    ]
+  }
+}
