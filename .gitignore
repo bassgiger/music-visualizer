@@ -8,3 +8,5 @@ dist/
 *.mobileprovision
 *.keystore
 *.jks
+.build/
+.swiftpm/

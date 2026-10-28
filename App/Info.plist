@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>de</string>
+	<key>CFBundleDisplayName</key>
+	<string>Music Visualizer</string>
+	<key>CFBundleExecutable</key>
+	<string>MusicVisualizer</string>
+	<key>CFBundleIdentifier</key>
+	<string>ch.giger.musicvisualizer</string>
+	<key>CFBundleName</key>
+	<string>Music Visualizer</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.music</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.4</string>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Music Visualizer hört den Ton, den der Mac gerade abspielt, und macht daraus ein bewegtes Bild. Es wird nichts aufgenommen oder gespeichert.</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+</dict>
+</plist>

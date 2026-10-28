@@ -11,6 +11,19 @@ durch einen neuen ersetzt („ersetzt Entscheid vom …“).
 **Betrifft:** Dateien, Funktionen.
 ```
 
+## 2026-10-28 – Ziel iPhone, Desktop, TV; zuerst eine einfache Mac-App in Swift
+**Entscheid:** Die App soll auf iPhone, Desktop und TV laufen. Die erste Version ist eine
+Mac-App in Swift/SwiftUI, gebaut mit dem Swift Package Manager der Command Line Tools (ohne
+Xcode). Analyse und Bild liegen im plattformunabhängigen Modul `VisualizerKit`, damit iPhone
+und Apple TV sie später übernehmen; der Ton kommt über einen globalen Core-Audio-Tap.
+**Warum:** Stefan: „ich möchte eine einfache App die die aktuelle Musikwiedergabe
+visualisiert“, auf die Frage nach der Plattform „Mac zuerst“, dazu „auf iphone, desktop, tv“.
+Der Mac ist mit den vorhandenen Werkzeugen sofort baubar und gibt den Systemton offiziell
+frei; Swift teilen sich iPhone, Mac und Apple TV. Vorerst verworfen: iPhone zuerst (braucht
+Xcode, nur Mikrofon), Flutter o.ä. (mehr Werkzeuge, Tonabgriff trotzdem je Plattform).
+**Wer:** Stefan (Plattformen, Mac zuerst), Claude (Vorschlag Swift, Aufbau).
+**Betrifft:** `Package.swift`, `Sources/`, `Tests/`, `App/Info.plist`, `scripts/build-app.sh`.
+
 ## 2026-10-28 – Idee: die Musik visualisieren, die auf dem Gerät gerade läuft
 **Entscheid:** Die App zeigt die Musik, die auf demselben Gerät gerade läuft (Spotify, Apple
 Music, YouTube …), auf dem Handy wie auf Mac und PC – nicht nur eigene Dateien oder das Mikrofon.

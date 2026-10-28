@@ -17,7 +17,15 @@
     die Erweiterung erhält den Ton der Apps). Offen: ob Apple Music (Kopierschutz) dabei Ton
     liefert und ob Apple die App so im App Store zulässt. Bestehende iOS-Visualizer arbeiten
     meist mit dem Mikrofon.
-- **Plattformen:** iPhone/iPad, Android, Mac, Windows – welche zuerst?
+- **Mac-App mit echter Musik testen** (Erlaubnis „Systemaudioaufnahme“, Ausgabewechsel
+  z.B. auf AirPods, Aussehen der Balken).
+- **Plattformen:** Ziel iPhone, Desktop, TV (Entscheid 2026-10-28). Offen: „Desktop“ nur Mac
+  oder auch Windows? Welcher TV (Apple TV, Google TV, Smart-TV)? Apple TV erhält voraussichtlich
+  keinen Ton anderer Apps – denkbar: Bild vom Mac/iPhone per AirPlay auf den TV spiegeln (geht
+  schon jetzt), oder eine TV-App erhält die Daten vom Handy übers Netz. Vor dem Bau abklären.
+- **Bundle-ID** `ch.giger.musicvisualizer` ist vorläufig; vor dem ersten Store-Upload festlegen.
+- **App Store (Mac):** braucht Xcode, Sandbox und Developer-Zertifikat; prüfen, ob der
+  Core-Audio-Tap in der Sandbox funktioniert.
 - **Technik:** eine gemeinsame Codebasis für alle Plattformen (z.B. Flutter, React Native,
   Web-Technik in einer App-Hülle) oder je Plattform eigen (z.B. Swift für Apple). Für
   flüssige Grafik zählt der Zugang zur Grafikkarte (Metal, OpenGL/Vulkan, WebGL/WebGPU).
@@ -26,3 +34,7 @@
   einem der Macs (fehlt bisher).
 - **Name und Aussehen:** endgültiger App-Name (für die Stores), Stil der Bilder, Gratis oder
   kostenpflichtig.
+
+## Erledigt
+
+- 2026-10-28: Erste Mac-App (Spektrum-Balken zum Systemton), Tests für die Analyse.
