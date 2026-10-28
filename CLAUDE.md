@@ -12,8 +12,10 @@ sondern Stefan fragen und den Entscheid in `docs/entscheidungen.md` festhalten.
 - Beim Start von Claude Code holt ein SessionStart-Hook (`.claude/settings.json`) per
   `git pull --ff-only` den neuesten Stand; ist seine Ausgabe ein Fehler, zuerst klären.
   Zu Beginn jeder Aufgabe zusätzlich `git fetch`, bei Rückstand zuerst `git pull`.
-- Stefan arbeitet auf zwei Macs. Dort gibt es (Stand 2026-10-28) kein Node, kein Docker und
-  kein Xcode (nur die Command Line Tools) – für Apps im App Store von Apple braucht es Xcode.
+- Stefan arbeitet auf zwei Macs. Dort gibt es (Stand 2026-10-28) kein Node und kein Docker.
+  Xcode ist seit 2026-10-28 installiert (auf welchem der beiden Macs, ist unklar); bricht
+  `git` oder `swift` mit einem Hinweis auf die Xcode-Lizenz ab, muss Stefan
+  `sudo xcodebuild -license` ausführen.
 
 ## Sprache & Stil
 

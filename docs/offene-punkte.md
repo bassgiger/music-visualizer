@@ -18,23 +18,27 @@
     liefert und ob Apple die App so im App Store zulässt. Bestehende iOS-Visualizer arbeiten
     meist mit dem Mikrofon.
 - **Mac-App mit echter Musik testen** (Erlaubnis „Systemaudioaufnahme“, Ausgabewechsel
-  z.B. auf AirPods, Aussehen der Balken).
+  z.B. auf AirPods, Aussehen der Muster). Mit künstlichem Ton geprüft, mit echter Musik noch
+  abzustimmen: ob die Bassschläge sicher erkannt werden (Feuerwerk, Tunnel) und ob die
+  Flammenfarbe sinnvoll zwischen orange und blau wechselt (Schwelle in `FlamesPattern`).
 - **Plattformen:** Ziel iPhone, Desktop, TV (Entscheid 2026-10-28), TV über AirPlay (Entscheid
   2026-10-28). Offen: „Desktop“ nur Mac oder auch Windows?
 - **AirPlay testen:** Läuft das Bild synchron zum Ton auf dem TV? (Beim Spiegeln reisen Bild und
   Ton gemeinsam; geht nur der Ton an einen AirPlay-Lautsprecher, hinkt dieser rund 2 s nach.)
 - **Bundle-ID** `ch.giger.musicvisualizer` ist vorläufig; vor dem ersten Store-Upload festlegen.
-- **App Store (Mac):** braucht Xcode, Sandbox und Developer-Zertifikat; prüfen, ob der
-  Core-Audio-Tap in der Sandbox funktioniert.
+- **App Store (Mac):** Xcode ist seit 2026-10-28 installiert; es fehlen Sandbox und
+  Developer-Zertifikat; prüfen, ob der Core-Audio-Tap in der Sandbox funktioniert.
 - **Technik:** eine gemeinsame Codebasis für alle Plattformen (z.B. Flutter, React Native,
   Web-Technik in einer App-Hülle) oder je Plattform eigen (z.B. Swift für Apple). Für
   flüssige Grafik zählt der Zugang zur Grafikkarte (Metal, OpenGL/Vulkan, WebGL/WebGPU).
 - **Konten und Werkzeuge:** Apple Developer Program und Google Play Console sind
-  kostenpflichtig und brauchen eine Anmeldung auf Stefans Namen; für Apple-Apps Xcode auf
-  einem der Macs (fehlt bisher).
+  kostenpflichtig und brauchen eine Anmeldung auf Stefans Namen. Xcode ist auf einem der
+  Macs installiert (2026-10-28).
 - **Name und Aussehen:** endgültiger App-Name (für die Stores), Stil der Bilder, Gratis oder
   kostenpflichtig.
 
 ## Erledigt
 
+- 2026-10-28: Sechs wählbare Muster (Balken, Kreis, Wellen, Tunnel, Flammen, Feuerwerk),
+  Erkennung von Bassschlägen, Version 0.2.
 - 2026-10-28: Erste Mac-App (Spektrum-Balken zum Systemton), Tests für die Analyse.

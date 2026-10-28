@@ -11,6 +11,19 @@ durch einen neuen ersetzt („ersetzt Entscheid vom …“).
 **Betrifft:** Dateien, Funktionen.
 ```
 
+## 2026-10-28 – Mehrere Muster zur Auswahl
+**Entscheid:** Die App zeigt die Musik in wählbaren Mustern: Balken (unverändert), Kreis,
+Wellen, Tunnel, Flammen, Feuerwerk – bunt und bewegt. Wahl über eine Leiste im Bild, das
+Menü „Muster“, ⌘1–⌘6 und ← →; die Wahl bleibt gespeichert. Die Flammen brennen „im Stil der
+Musik“: Die Farbe folgt dem Klang (dunkel/basslastig orange-rot, hell bis blau).
+**Warum:** Stefan: „di eq anzeige ist hübsch, man soll jedoch unterschiedliche Muster
+auswählen können, bunt und bewegt“; aus den Vorschlägen alle vier gewählt, dazu „Flammen
+welche im Style der Musik brennen“. Die Muster liegen in `VisualizerKit`, damit iPhone und
+Apple TV sie übernehmen.
+**Wer:** Stefan (Wunsch, Auswahl der Muster), Claude (Gestaltung, Bedienung).
+**Betrifft:** `Sources/VisualizerKit/` (Patterns, `VisualizerView`, `PatternPicker`,
+Schlagerkennung in `SpectrumAnalyzer`), `MusicVisualizerApp.swift`.
+
 ## 2026-10-28 – TV über AirPlay statt eigener TV-App
 **Entscheid:** Aufs TV kommt das Bild per AirPlay vom Mac (später vom iPhone). Eine eigene
 App für Apple TV oder andere TVs gibt es vorerst nicht.

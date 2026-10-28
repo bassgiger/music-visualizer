@@ -11,6 +11,10 @@ public final class SpectrumAnalyzer {
     public private(set) var bands: [Float]
     /// Mittel der tiefsten Bänder, 0…1 – für Effekte, die mit dem Bass pulsieren.
     public private(set) var bass: Float = 0
+    /// Mittel aller Bänder, 0…1 – wie laut es gerade ist.
+    public private(set) var level: Float = 0
+    /// true nach dem Aufruf, in dem ein Bassschlag einsetzt (z.B. eine Bassdrum).
+    public private(set) var beat = false
     /// Wie lange schon (in Sekunden) praktisch Stille herrscht.
     public private(set) var silentFor: Double = 0
 
@@ -42,6 +46,12 @@ public final class SpectrumAnalyzer {
     private var realPart: [Float]
     private var imagPart: [Float]
     private var rangesSampleRate: Double = 0
+    /// FFT-Bins für die Schlagerkennung (tiefste Frequenz bis 150 Hz)
+    private var beatBins = 1...1
+    /// Gleitendes Mittel der Bassenergie, gegen das ein Schlag gemessen wird
+    private var bassEnergyAverage: Float = 0
+    /// Erst wenn die Bassenergie nach einem Schlag wieder abgefallen ist, zählt der nächste
+    private var beatArmed = true
 
     public init(bandCount: Int = 64, fftSize: Int = 4096) {
         precondition(fftSize > 1 && fftSize & (fftSize - 1) == 0, "fftSize muss eine Zweierpotenz sein")
@@ -112,6 +122,22 @@ public final class SpectrumAnalyzer {
             if i < bassBandCount { bassSum += bands[i] }
         }
         bass = bassSum / Float(bassBandCount)
+        level = bands.reduce(0, +) / Float(bandCount)
+
+        // Schlag: Die Bassenergie springt deutlich über ihr Mittel. Danach muss sie erst wieder
+        // fallen, sonst zählt ein langer Basston mehrfach.
+        var bassEnergy: Float = 0
+        for bin in beatBins { bassEnergy += amplitudes[bin] * amplitudes[bin] }
+        beat = false
+        if beatArmed {
+            if bassEnergy > 1e-5 && bassEnergy > bassEnergyAverage * 1.45 {
+                beat = true
+                beatArmed = false
+            }
+        } else if bassEnergy < bassEnergyAverage * 1.1 {
+            beatArmed = true
+        }
+        bassEnergyAverage += (bassEnergy - bassEnergyAverage) * Float(1 - exp(-deltaTime / 0.6))
     }
 
     private func interpolatedAmplitude(atBin bin: Float) -> Float {
@@ -127,6 +153,8 @@ public final class SpectrumAnalyzer {
         let top = min(highestFrequency, Float(sampleRate) / 2 * 0.95)
         let ratio = top / lowestFrequency
         let lastBin = fftSize / 2 - 1
+        let firstBeatBin = min(max(1, Int((lowestFrequency / binWidth).rounded(.up))), lastBin)
+        beatBins = firstBeatBin...max(firstBeatBin, min(Int((150 / binWidth).rounded(.down)), lastBin))
         ranges = (0..<bandCount).map { i in
             let low = lowestFrequency * pow(ratio, Float(i) / Float(bandCount))
             let high = lowestFrequency * pow(ratio, Float(i + 1) / Float(bandCount))
