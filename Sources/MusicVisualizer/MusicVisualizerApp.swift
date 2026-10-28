@@ -86,6 +86,7 @@ struct ContentView: View {
             if pickerVisible {
                 PatternPicker(selection: $pattern)
                     .onHover { pointerOnPicker = $0 }
+                    .padding(.horizontal, 16)
                     .padding(.bottom, 24)
                     .transition(.opacity)
             }

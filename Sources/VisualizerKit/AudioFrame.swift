@@ -16,6 +16,8 @@ struct AudioFrame {
     var flow: Double
     /// Sekunden seit dem letzten Bild
     var deltaTime: Double
+    /// Die zuletzt gehörte Schwingung (rund 20 ms), auf −1…1 ausgesteuert – wie auf einem Oszilloskop
+    var waveform: [Double] = []
 
     /// Stärke an einer Stelle des Spektrums (0 = tief, 1 = hoch), zwischen den Bändern interpoliert.
     func band(at position: Double) -> Double {
@@ -47,4 +49,22 @@ struct AudioFrame {
 /// Führt einen Farbton auf den Farbkreis zurück (0…1), auch bei negativen Werten.
 func cyclicHue(_ value: Double) -> Double {
     value - value.rounded(.down)
+}
+
+/// Rechnet Farbton, Sättigung und Helligkeit (je 0…1) in Rot, Grün, Blau um – für das
+/// Zeichnen mit Core Graphics, das keine HSB-Farben kennt.
+func rgb(hue: Double, saturation: Double, brightness: Double) -> (red: Double, green: Double, blue: Double) {
+    let sector = cyclicHue(hue) * 6
+    let fraction = sector - sector.rounded(.down)
+    let p = brightness * (1 - saturation)
+    let q = brightness * (1 - saturation * fraction)
+    let t = brightness * (1 - saturation * (1 - fraction))
+    switch Int(sector) % 6 {
+    case 0: return (brightness, t, p)
+    case 1: return (q, brightness, p)
+    case 2: return (p, brightness, t)
+    case 3: return (p, q, brightness)
+    case 4: return (t, p, brightness)
+    default: return (brightness, p, q)
+    }
 }

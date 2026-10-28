@@ -12,6 +12,10 @@ public enum VisualizerPattern: String, CaseIterable, Identifiable, Sendable {
     case flames
     /// Explosionen bei jedem Bassschlag
     case fireworks
+    /// Leuchtkugeln im Raum mit Funkenströmen und Nebel (im Stil der iTunes-Visualisierung)
+    case spheres
+    /// Linien, die als wachsende, drehende Spuren stehen bleiben (im Stil des alten iTunes)
+    case trails
 
     public var id: String { rawValue }
 
@@ -24,6 +28,8 @@ public enum VisualizerPattern: String, CaseIterable, Identifiable, Sendable {
         case .tunnel: "Tunnel"
         case .flames: "Flammen"
         case .fireworks: "Feuerwerk"
+        case .spheres: "Sphären"
+        case .trails: "Spuren"
         }
     }
 
@@ -36,6 +42,8 @@ public enum VisualizerPattern: String, CaseIterable, Identifiable, Sendable {
         case .tunnel: "circle.circle"
         case .flames: "flame.fill"
         case .fireworks: "sparkles"
+        case .spheres: "atom"
+        case .trails: "scribble.variable"
         }
     }
 

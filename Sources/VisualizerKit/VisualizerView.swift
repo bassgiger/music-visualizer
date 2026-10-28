@@ -36,12 +36,15 @@ final class VisualizerRenderer {
     private var lastDate: Date?
     private var time: Double = 0
     private var flow: Double = 0
+    /// Grösster Ausschlag der letzten Zeit, zum Aussteuern der Schwingung
+    private var waveformPeak: Double = 0
     private var patterns: [VisualizerPattern: any PatternRenderer] = [:]
 
     func advance(to date: Date, buffer: SampleBuffer) -> AudioFrame {
         let deltaTime = lastDate.map { min(max(date.timeIntervalSince($0), 0), 0.1) } ?? 1.0 / 60
         lastDate = date
-        analyzer.update(samples: buffer.latest(analyzer.fftSize), sampleRate: buffer.sampleRate, deltaTime: deltaTime)
+        let samples = buffer.latest(analyzer.fftSize)
+        analyzer.update(samples: samples, sampleRate: buffer.sampleRate, deltaTime: deltaTime)
         time += deltaTime
         flow += deltaTime * (0.3 + 1.7 * Double(analyzer.level))
         return AudioFrame(
@@ -51,8 +54,27 @@ final class VisualizerRenderer {
             beat: analyzer.beat,
             time: time,
             flow: flow,
-            deltaTime: deltaTime
+            deltaTime: deltaTime,
+            waveform: waveform(of: samples, deltaTime: deltaTime)
         )
+    }
+
+    /// Die letzten 1024 Werte, je 4 gemittelt (glättet die Linie), so ausgesteuert, dass auch
+    /// leise Musik den Bereich −1…1 füllt.
+    private func waveform(of samples: [Float], deltaTime: Double) -> [Double] {
+        let recent = samples.suffix(1024)
+        var points: [Double] = []
+        points.reserveCapacity(recent.count / 4)
+        var index = recent.startIndex
+        while index + 4 <= recent.endIndex {
+            points.append(Double(recent[index..<index + 4].reduce(0, +)) / 4)
+            index += 4
+        }
+        let peak = points.map(abs).max() ?? 0
+        waveformPeak = max(peak, waveformPeak * exp(-deltaTime / 1.5))
+        // Untergrenze, damit bei Stille kein Rauschen hochgezogen wird
+        let gain = 1 / max(waveformPeak, 0.02)
+        return points.map { min(max($0 * gain, -1), 1) }
     }
 
     func draw(_ pattern: VisualizerPattern, frame: AudioFrame, in context: inout GraphicsContext,
@@ -84,6 +106,8 @@ final class VisualizerRenderer {
         case .tunnel: TunnelPattern()
         case .flames: FlamesPattern()
         case .fireworks: FireworksPattern()
+        case .spheres: SpheresPattern()
+        case .trails: TrailsPattern()
         }
         patterns[pattern] = made
         return made

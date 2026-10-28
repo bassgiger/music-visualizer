@@ -79,9 +79,10 @@ private func sine(frequency: Double, amplitude: Float, sampleRate: Double, count
 }
 
 @Test func musterWechselnReihum() {
+    let last = VisualizerPattern.allCases.last!
     #expect(VisualizerPattern.bars.next == .ring)
-    #expect(VisualizerPattern.fireworks.next == .bars)
-    #expect(VisualizerPattern.bars.previous == .fireworks)
+    #expect(last.next == .bars)
+    #expect(VisualizerPattern.bars.previous == last)
     for pattern in VisualizerPattern.allCases {
         #expect(pattern.next.previous == pattern)
     }
@@ -96,4 +97,15 @@ private func sine(frequency: Double, amplitude: Float, sampleRate: Double, count
     #expect(abs(frame.average(from: 0, to: 1) - 0.45) < 1e-9)
     // Auf dem Kreis gespiegelt: gleich weit von oben → gleicher Wert
     #expect(abs(frame.band(aroundCircle: 0.2) - frame.band(aroundCircle: 0.8)) < 1e-9)
+}
+
+@Test func farbtonWirdInRgbUmgerechnet() {
+    func close(_ a: (red: Double, green: Double, blue: Double), _ b: (Double, Double, Double)) -> Bool {
+        abs(a.red - b.0) < 1e-9 && abs(a.green - b.1) < 1e-9 && abs(a.blue - b.2) < 1e-9
+    }
+    #expect(close(rgb(hue: 0, saturation: 1, brightness: 1), (1, 0, 0)))
+    #expect(close(rgb(hue: 1.0 / 3, saturation: 1, brightness: 1), (0, 1, 0)))
+    #expect(close(rgb(hue: 2.0 / 3, saturation: 1, brightness: 1), (0, 0, 1)))
+    #expect(close(rgb(hue: 1.5, saturation: 1, brightness: 1), (0, 1, 1)))
+    #expect(close(rgb(hue: 0.3, saturation: 0, brightness: 0.5), (0.5, 0.5, 0.5)))
 }

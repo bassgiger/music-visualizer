@@ -21,6 +21,8 @@
   z.B. auf AirPods, Aussehen der Muster). Mit künstlichem Ton geprüft, mit echter Musik noch
   abzustimmen: ob die Bassschläge sicher erkannt werden (Feuerwerk, Tunnel) und ob die
   Flammenfarbe sinnvoll zwischen orange und blau wechselt (Schwelle in `FlamesPattern`).
+  Bei „Sphären“ (bis 3000 Funken) und „Spuren“ (Pixelspeicher) im Vollbild prüfen, ob alles
+  flüssig läuft; sonst auf die Grafikkarte (Metal) ausweichen.
 - **Plattformen:** Ziel iPhone, Desktop, TV (Entscheid 2026-10-28), TV über AirPlay (Entscheid
   2026-10-28). Offen: „Desktop“ nur Mac oder auch Windows?
 - **AirPlay testen:** Läuft das Bild synchron zum Ton auf dem TV? (Beim Spiegeln reisen Bild und
@@ -39,6 +41,7 @@
 
 ## Erledigt
 
+- 2026-10-28: Muster „Sphären“ und „Spuren“ im Stil der iTunes-Visualisierungen, Version 0.3.
 - 2026-10-28: Sechs wählbare Muster (Balken, Kreis, Wellen, Tunnel, Flammen, Feuerwerk),
   Erkennung von Bassschlägen, Version 0.2.
 - 2026-10-28: Erste Mac-App (Spektrum-Balken zum Systemton), Tests für die Analyse.

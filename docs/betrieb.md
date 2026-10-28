@@ -27,7 +27,10 @@ Bildschirm- und Systemaudioaufnahme den Eintrag entfernen und neu erlauben.
 - `Sources/VisualizerKit/Patterns/` – je Muster eine Klasse (`PatternRenderer`); sie bekommt
   pro Bild einen `AudioFrame` (Bänder, Bass, Lautstärke, Schlag, Zeit) und darf Zustand
   behalten (Funken, Ringe). Neues Muster: Klasse anlegen, Fall in `VisualizerPattern`
-  ergänzen, in `VisualizerRenderer.renderer(for:)` eintragen.
+  ergänzen, in `VisualizerRenderer.renderer(for:)` eintragen. `AudioFrame.waveform` enthält
+  die zuletzt gehörte Schwingung (ausgesteuert auf −1…1). „Spuren“ (`TrailsPattern`) hält
+  das letzte Bild in einem eigenen Pixelspeicher (Core Graphics, höchstens 800 Pixel breit)
+  und zeichnet es jedes Mal vergrössert, gedreht und blasser wieder hinein.
 - `Sources/MusicVisualizer/` – Mac-App: Fenster, Menü „Muster“, Systemton-Abgriff
   (`SystemAudioTap`).
 - `App/Info.plist` – Bundle-Angaben, Begründung für die Erlaubnis (`NSAudioCaptureUsageDescription`).

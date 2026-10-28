@@ -1,9 +1,9 @@
 # Funktionen
 
-## Mac-App (Version 0.2)
+## Mac-App (Version 0.3)
 
 - Zeigt den Ton, den der Mac gerade abspielt (Spotify, Apple Music, YouTube im Browser …),
-  als bewegtes Bild in einem von sechs Mustern:
+  als bewegtes Bild in einem von acht Mustern:
   - **Balken:** 64 Balken, tief links, hoch rechts, mit schwacher Spiegelung; dahinter ein
     Leuchten, das mit dem Bass pulsiert.
   - **Kreis:** Strahlen rund um einen Regenbogen-Ring (oben die Tiefen, unten die Höhen,
@@ -17,8 +17,17 @@
     basslastige, dunkle Musik brennt orange-rot, helle über Violett bis blau.
   - **Feuerwerk:** bei jedem Bassschlag eine Explosion aus Funken (bei ruhiger Musik ohne
     Schläge alle 1.5 s), aus den Höhen steigt Glitzer auf.
+  - **Sphären** (im Stil der iTunes-Visualisierung): vier Leuchtkugeln schweben im Raum, je
+    eine für einen Tonbereich; aus ihnen fliessen Funken in Strahlen, die sich wie in einem
+    Magnetfeld zu Spiralen winden; dahinter farbiger Nebel. Die Kamera kreist, ein Bassschlag
+    lässt eine Kugel aufblitzen, die Farbpalette wechselt alle 30 s.
+  - **Spuren** (im Stil des alten iTunes-Visualizers): die Schwingung der Musik als leuchtende
+    Linie, die als Spur stehen bleibt, wächst, sich dreht und verblasst – ein fliessender
+    Regenbogen-Tunnel. Alle 20 s wechselt die Figur (Kreis, Linie, Stern), ein Bassschlag
+    setzt einen Ring.
 - Muster wählen: Leiste unten im Bild (erscheint beim Start und bei Mausbewegung, verschwindet
-  nach 3 s), Menü „Muster“, ⌘1 bis ⌘6 oder die Pfeiltasten ← →. Die App merkt sich die Wahl.
+  nach 3 s; in schmalen Fenstern nur mit Bildzeichen), Menü „Muster“, ⌘1 bis ⌘8 oder die
+  Pfeiltasten ← →. Die App merkt sich die Wahl.
 - Bassschläge erkennt die App am Sprung der Energie unter 150 Hz; ein langer Basston zählt
   nur einmal.
 - Beim ersten Start fragt macOS nach der Erlaubnis „Systemaudioaufnahme“. Ohne Erlaubnis

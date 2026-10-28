@@ -11,6 +11,18 @@ durch einen neuen ersetzt („ersetzt Entscheid vom …“).
 **Betrifft:** Dateien, Funktionen.
 ```
 
+## 2026-10-28 – Muster im Stil der iTunes-Visualisierungen, aber eigen
+**Entscheid:** Zwei weitere Muster im Stil der früheren iTunes-Visualisierungen: „Sphären“
+(Leuchtkugeln, Funkenströme, Nebel – wie Magnetosphere, seit iTunes 8) und „Spuren“
+(Linien mit wachsenden, drehenden Spuren – wie der Classic Visualizer). Eigene Umsetzung und
+eigene Namen, keine Kopie.
+**Warum:** Stefan: „itunes hatte früher auch hübsche visualisationen - kannst du diese
+finden / nachbauen?“, nach der Abklärung „baue beide“. Die Originale gibt es noch in Apples
+Musik-App (⌘T), aber nur für deren eigene Wiedergabe. Eine genaue Kopie wäre heikel: Code und
+Namen gehören Apple, und Apple weist im App Store Nachahmungen zurück (Richtlinie 4.1).
+**Wer:** Stefan (Wunsch, beide bauen), Claude (Abklärung, Umsetzung).
+**Betrifft:** `SpheresPattern.swift`, `TrailsPattern.swift`, `AudioFrame.waveform`.
+
 ## 2026-10-28 – Mehrere Muster zur Auswahl
 **Entscheid:** Die App zeigt die Musik in wählbaren Mustern: Balken (unverändert), Kreis,
 Wellen, Tunnel, Flammen, Feuerwerk – bunt und bewegt. Wahl über eine Leiste im Bild, das

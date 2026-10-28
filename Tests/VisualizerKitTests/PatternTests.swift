@@ -16,7 +16,12 @@ func syntheticFrame(_ index: Int, fps: Double = 60) -> AudioFrame {
         beat: index % Int(fps / 2) == 0,
         time: time,
         flow: time * 1.2,
-        deltaTime: 1 / fps
+        deltaTime: 1 / fps,
+        // Schwingung aus Grundton und Oberton, wie bei einem Instrument
+        waveform: (0..<256).map { k in
+            let x = Double(k) / 256 * 2 * .pi
+            return 0.7 * sin(3 * x + time * 4) + 0.3 * sin(11 * x - time * 7)
+        }
     )
 }
 
