@@ -11,6 +11,15 @@ durch einen neuen ersetzt („ersetzt Entscheid vom …“).
 **Betrifft:** Dateien, Funktionen.
 ```
 
+## 2026-10-28 – Idee: die Musik visualisieren, die auf dem Gerät gerade läuft
+**Entscheid:** Die App zeigt die Musik, die auf demselben Gerät gerade läuft (Spotify, Apple
+Music, YouTube …), auf dem Handy wie auf Mac und PC – nicht nur eigene Dateien oder das Mikrofon.
+**Warum:** Stefan: „die Idee war, wenn Musik auf dem Handy läuft, diese zu visualisieren, oder auf
+dem Mac / PC“. Abgeklärt (Stand 2026-10-28): Mac, Windows und Android erlauben das mit
+Zustimmung der Nutzer:in; das iPhone/iPad nicht direkt (Details in offene-punkte.md).
+**Wer:** Stefan (Idee), Claude (Abklärung).
+**Betrifft:** Aufbau der App (Tonquelle je Plattform).
+
 ## 2026-10-28 – Projekt angelegt: App für Handy und Computer über die App Stores
 **Entscheid:** Eigenes Projekt „Music Visualizer“, Ordner `~/Projekte/music-visualizer`,
 privates GitHub-Repo `bassgiger/music-visualizer`, Branch `main`. Ziel ist eine App für Handy

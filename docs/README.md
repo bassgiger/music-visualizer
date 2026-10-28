@@ -3,7 +3,8 @@
 Stand: 2026-10-28
 
 App für Handy und Computer, die Musik als bewegtes Bild darstellt, verteilt über die App
-Stores. Projekt angelegt, Technik und Umfang noch offen.
+Stores. Idee: die Musik zeigen, die auf dem Gerät gerade läuft (Spotify, Apple Music …).
+Technik und Umfang noch offen.
 
 | Datei | Inhalt |
 |---|---|
