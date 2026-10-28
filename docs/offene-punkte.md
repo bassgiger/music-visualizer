@@ -19,10 +19,10 @@
     meist mit dem Mikrofon.
 - **Mac-App mit echter Musik testen** (Erlaubnis „Systemaudioaufnahme“, Ausgabewechsel
   z.B. auf AirPods, Aussehen der Balken).
-- **Plattformen:** Ziel iPhone, Desktop, TV (Entscheid 2026-10-28). Offen: „Desktop“ nur Mac
-  oder auch Windows? Welcher TV (Apple TV, Google TV, Smart-TV)? Apple TV erhält voraussichtlich
-  keinen Ton anderer Apps – denkbar: Bild vom Mac/iPhone per AirPlay auf den TV spiegeln (geht
-  schon jetzt), oder eine TV-App erhält die Daten vom Handy übers Netz. Vor dem Bau abklären.
+- **Plattformen:** Ziel iPhone, Desktop, TV (Entscheid 2026-10-28), TV über AirPlay (Entscheid
+  2026-10-28). Offen: „Desktop“ nur Mac oder auch Windows?
+- **AirPlay testen:** Läuft das Bild synchron zum Ton auf dem TV? (Beim Spiegeln reisen Bild und
+  Ton gemeinsam; geht nur der Ton an einen AirPlay-Lautsprecher, hinkt dieser rund 2 s nach.)
 - **Bundle-ID** `ch.giger.musicvisualizer` ist vorläufig; vor dem ersten Store-Upload festlegen.
 - **App Store (Mac):** braucht Xcode, Sandbox und Developer-Zertifikat; prüfen, ob der
   Core-Audio-Tap in der Sandbox funktioniert.

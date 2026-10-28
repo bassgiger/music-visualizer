@@ -11,6 +11,15 @@ durch einen neuen ersetzt („ersetzt Entscheid vom …“).
 **Betrifft:** Dateien, Funktionen.
 ```
 
+## 2026-10-28 – TV über AirPlay statt eigener TV-App
+**Entscheid:** Aufs TV kommt das Bild per AirPlay vom Mac (später vom iPhone). Eine eigene
+App für Apple TV oder andere TVs gibt es vorerst nicht.
+**Warum:** Stefan auf die Frage, welcher TV gemeint ist: „airplay“. Eine TV-App bekäme keinen
+Ton der anderen Apps; per AirPlay läuft der Abgriff auf dem Mac/iPhone, wo die Musik spielt.
+Mit der Mac-App geht das schon jetzt (Bildschirmsynchronisierung).
+**Wer:** Stefan.
+**Betrifft:** Plattformen (keine tvOS-App), später iPhone-App (Bild auf dem externen Bildschirm).
+
 ## 2026-10-28 – Ziel iPhone, Desktop, TV; zuerst eine einfache Mac-App in Swift
 **Entscheid:** Die App soll auf iPhone, Desktop und TV laufen. Die erste Version ist eine
 Mac-App in Swift/SwiftUI, gebaut mit dem Swift Package Manager der Command Line Tools (ohne
